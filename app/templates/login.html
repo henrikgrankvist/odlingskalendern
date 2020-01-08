@@ -28,6 +28,7 @@
 
 
 					<form action="/login" method="POST">
+						{{ form.hidden_tag() }}
 				  <div class="form-group">
 						{{ form.username.label(class="label login-label") }}
 						{{ form.username() }}
