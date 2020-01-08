@@ -1,0 +1,26 @@
+{% block navbar %}
+<!-- navbar -->
+<div class="navbar-wrapper">
+	<div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<!-- Responsive navbar -->
+				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+			</a>
+				<!--<h1 class="brand"><a href="index.html">Odlingskalendern</a></h1> -->
+				<!-- navigation -->
+				<nav class="pull-right nav-collapse collapse">
+					<ul id="menu-main" class="nav">
+						<li><a title="team" href="{{ url_for('index', _anchor='about') }}">About</a></li>
+						<li><a title="services" href="{{ url_for('index', _anchor='services') }}">Services</a></li>
+						<li><a title="works" href="{{ url_for('index', _anchor='works') }}">Works</a></li>
+						<li><a title="blog" href="{{ url_for('index', _anchor='blog') }}">Blog</a></li>
+						<li><a title="contact" href="{{ url_for('index', _anchor='contact') }}">Contact</a></li>
+						<li><a href="{{ url_for('login') }}">Logga in</a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}
