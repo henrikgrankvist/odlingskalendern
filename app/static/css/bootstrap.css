@@ -3893,9 +3893,10 @@ input[type="submit"].btn.btn-mini {
   margin: 0;
 }
 
+/*Changed "top: -2px;" to 0px"*/
 .alert .close {
   position: relative;
-  top: -2px;
+  top: 0px;
   right: -21px;
   line-height: 20px;
 }

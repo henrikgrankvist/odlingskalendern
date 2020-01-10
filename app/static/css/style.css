@@ -409,14 +409,14 @@ header .logo {
 
 /* --- Header subscribe form --- */
 
-#header-wrapper input[type=password], input[type=text] {
+#header-wrapper input[type=text], input[type=password] {
 	background: rgba(227, 231, 228, 1);
 	font-family: 'Open Sans', sans serif;
 	font-size: 1.3125em;
 	border: 0;
 	text-align: left;
 	vertical-align: middle;
-	margin-bottom:0 !important;
+	/*margin-bottom:0 !important;*/
 }
 /* I didn't like the focus color*/
 /*
@@ -455,6 +455,7 @@ header .logo {
 #header-wrapper input[type=password], input[type=text] {
 	height: 2.9em;
 	width:100%;
+	margin-bottom: 20px;
 }
 
 #header-wrapper input[type=submit] {
@@ -967,6 +968,11 @@ section#about {
 	z-index: 999;
 }
 
+#contact-form input[type=text] {
+	height: 60px;
+	margin-bottom:20px;
+}
+
 #contact-form input[type=text], .contactForm textarea {
 	background: rgba(227, 231, 228, 1);
 	font-family: 'Open Sans', sans serif;
@@ -990,10 +996,7 @@ section#about {
 	-moz-transition: background 0.25 ease-in;
 	-webkit-transition: background 0.25 ease-in;
 }
-#contact-form input[type=text] {
-	height: 60px;
-	margin-bottom:30px;
-}
+
 #contact-form input[type=submit] {
 	color: #fff;
 	width: 185px;

@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+<!DOCTYPE HTML>
+<html lang="en">
+
+<body>
+	{% block content %}
+	<div id="header-wrapper" class="header-slider">
+		<header class="clearfix">
+			<!--<div class="container"> -->
+				<div class="form-group">
+					<div id="login-form" class="login-container">
+
+
+					<h1>Registrera dig</h1>
+
+					<!-- Show any flashed error messages -->
+					{% with messages = get_flashed_messages() %}
+						{% if messages %}
+							{% for message in messages %}
+								<div class="alert alert-error">
+									<button type="button" class="close" data-dismiss="alert">&times;</button>
+										{{ message }}
+									</div>
+							{% endfor %}
+						{% endif %}
+					{% endwith %}
+
+
+					<form action="/register" method="POST">
+						{{ form.hidden_tag() }} <!-- Protects again CSRF -->
+					  <div class="form-group">
+							{{ form.username() }}
+
+							{% if form.username.errors %}
+					 			{% for error in form.username.errors %}
+									<div class="alert alert-error">
+										<button type="button" class="close" data-dismiss="alert">&times;</button>
+										{{ error }}
+									</div>
+					 			{% endfor %}
+							{% endif %}
+						</div>
+
+						<div class="form-group">
+							{{ form.password() }}
+							{{ form.password2() }}
+							{{ form.submit }}
+						</div>
+					</form>
+				</div> <!-- <div id="login-form" class="login-container"> -->
+			</div> <!-- <div class="form-group"> -->
+		</header>
+	</div> <!-- <div id="header-wrapper" class="header-slider"> -->
+
+	<!--<a href="#" class="scrollup"><i class="icon-angle-up icon-square icon-bgdark icon-2x"></i></a>-->
+	{% endblock %}
+</body>
+</html>
