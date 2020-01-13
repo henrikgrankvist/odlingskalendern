@@ -4,6 +4,7 @@ from app.forms import LoginForm, RegisterForm
 from app.models import User
 from flask_login import current_user, login_user, login_required, logout_user
 from werkzeug.urls import url_parse
+from datetime import datetime
 
 @app.route('/')
 @app.route('/index')
@@ -56,12 +57,13 @@ def register():
     if form.validate_on_submit():
         user = User(username=form.username.data)
 
-        # Check if user is already registered
+        # Check if username (email) is already registered
         if User.query.filter_by(username=form.username.data).first() is not None:
             flash("Epost-adressen är redan registerad.")
             return redirect(url_for("register"))
 
         user.set_password(form.password.data)
+        current_user.joined_date = datetime.utcnow() # Set the time when the user registered
         db.session.add(user)
         db.session.commit()
 
@@ -74,3 +76,10 @@ def register():
 @login_required
 def page():
     return render_template("page.html", title='Test page')
+
+@app.route('/user/<username>')
+@login_required
+def user(username):
+    user = User.query.filter_by(username=username).first_or_404()
+    users = User.query.all()
+    return render_template("user.html", title='User page', user=user, users=users)

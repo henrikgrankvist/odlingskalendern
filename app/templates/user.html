@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+<!DOCTYPE HTML>
+<html lang="en">
+
+<body>
+	{% block content %}
+	<!-- spacer section -->
+	<section class="spacer green">
+		<div class="container">
+			<div class="row">
+				<div class="span12 aligncenter flyUp">
+					<h2 class="pagetitle">Hello <strong>{{ user.username }}</strong>!</h2>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- end spacer section -->
+	<!-- section: team -->
+	<section id="maincontent" class="inner">
+		<div class="container">
+			<h1>Profil</h1>
+			<ul>
+				<li>Förnamn:</li>
+				<li>Efternamn:</li>
+				<li>Blev Medlem:</li>
+			</ul>
+			<h1>Registerade användare</h1>
+			<ul>
+			{% for user in users %}
+				<li>
+				<a href="{{ url_for('user', username=user.username) }}">{{ user.username }}</a>
+				<!--Blev medlem: {{user.joined_datestrftime('%Y-%m-%d')}}</li>-->
+			{% endfor %}
+		</ul>
+		</div> <!-- div class="container"> -->
+	</section>
+ {% endblock %}
+</body>
+
+</html>
